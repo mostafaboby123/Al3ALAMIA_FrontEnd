@@ -3,8 +3,8 @@ import axios from "axios";
 import { successMessage } from "../toasts";
 import { updateCart } from "./authSlice";
 
-const USERS_URL = "http://al3alamiabackend-production.up.railway.app/users";
-const DOCTORS_URL = "http://al3alamiabackend-production.up.railway.app/doctors";
+const USERS_URL = "https://al3alamiabackend-production.up.railway.app/users";
+const DOCTORS_URL = "https://al3alamiabackend-production.up.railway.app/doctors";
 
 // Register user
 
@@ -66,7 +66,7 @@ export const signUpApi = createAsyncThunk("auth/signUp", async (userData, thunkA
 export const loginApi = createAsyncThunk("auth/login", async ({ email, password }, thunkAPI) => {
   try {
     // 1. Check if user is admin
-    const adminRes = await axios.get("http://al3alamiabackend-production.up.railway.app/admin", {
+    const adminRes = await axios.get("https://al3alamiabackend-production.up.railway.app/admin", {
       params: { email, password },
     });
 
@@ -193,7 +193,7 @@ export const AppointmentOperationsApi = createAsyncThunk("auth/AppointmentOperat
   const cancle_message = "Appointment Canceled !";
   try {
     if (operation === "add") {
-      const appointmentsResponse = await axios.post("http://al3alamiabackend-production.up.railway.app/appointments", data);
+      const appointmentsResponse = await axios.post("https://al3alamiabackend-production.up.railway.app/appointments", data);
       successMessage(success_message);
       return {
         message: success_message,
@@ -202,7 +202,7 @@ export const AppointmentOperationsApi = createAsyncThunk("auth/AppointmentOperat
     }
     //
     else if (operation === "remove") {
-      const appointmentsResponse = await axios.delete(`http://al3alamiabackend-production.up.railway.app/appointments/${data}`);
+      const appointmentsResponse = await axios.delete(`https://al3alamiabackend-production.up.railway.app/appointments/${data}`);
       successMessage(cancle_message);
       return {
         message: cancle_message,
