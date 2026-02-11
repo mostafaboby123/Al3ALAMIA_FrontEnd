@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const URL = "http://al3alamiabackend-production.up.railway.app/users";
+const URL = "https://al3alamiabackend-production.up.railway.app/users";
 
 // Get User Bills History
 const getUserBillsHistory = async (userId) => {
