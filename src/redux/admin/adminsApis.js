@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const URL = "http://al3alamiabackend-production.up.railway.app/admin";
+const URL = "https://al3alamiabackend-production.up.railway.app/admin";
 
 const getAdmins = async () => {
   try {
@@ -23,7 +23,7 @@ export const useAdmins = () => {
 
 const getUsers = async () => {
   try {
-    const res = await axios.get("http://al3alamiabackend-production.up.railway.app/users");
+    const res = await axios.get("https://al3alamiabackend-production.up.railway.app/users");
     return res.data;
   } catch (error) {
     console.log(error);
