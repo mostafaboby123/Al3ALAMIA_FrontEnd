@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./personalInformation.module.css";
+import styles from "./PersonalInformation.module.css";
 import { updateUserDataApi } from "../../../redux/auth/authApis";
 import image from "../../../assets/user.png";
 
