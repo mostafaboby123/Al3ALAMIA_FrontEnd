@@ -1,0 +1,18 @@
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .your-class {
+  margin-right: 10px;
+  margin-left: 0;
+}
+
+/* If you have specific RTL adjustments */
+:root[dir="rtl"] {
+  --text-direction: rtl;
+}
+
+:root[dir="ltr"] {
+  --text-direction: ltr;
+}

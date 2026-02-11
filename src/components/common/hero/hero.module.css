@@ -1,0 +1,363 @@
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #fafaf9, #fefce8, #ecfdf5);
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Floating Background Elements */
+.floatingBackground {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.floatingCircle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(24px);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.circleAmber {
+  top: 5rem;
+  left: 2.5rem;
+  width: 8rem;
+  height: 8rem;
+  background: linear-gradient(
+    to right,
+    rgba(252, 211, 77, 0.2),
+    rgba(255, 243, 166, 0.2)
+  );
+}
+
+.circleEmerald {
+  top: 10rem;
+  right: 5rem;
+  width: 12rem;
+  height: 12rem;
+  background: linear-gradient(
+    to right,
+    rgba(167, 243, 208, 0.2),
+    rgba(153, 246, 228, 0.2)
+  );
+  animation-delay: 1s;
+}
+
+.circleRose {
+  bottom: 5rem;
+  left: 25%;
+  width: 6rem;
+  height: 6rem;
+  background: linear-gradient(
+    to right,
+    rgba(251, 207, 232, 0.2),
+    rgba(244, 114, 182, 0.2)
+  );
+  animation-delay: 2s;
+}
+
+/* Container */
+.container {
+  position: relative;
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Hero Grid */
+.heroGrid {
+  display: grid;
+  gap: 4rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .heroGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Hero Content */
+.heroContent {
+  animation: fadeInLeft 1s ease-out forwards;
+}
+
+/* Hero Title */
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: #292524;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}
+
+.heroTitleGradient {
+  background: linear-gradient(to right, #92400e, #d97706, #b45309);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3.5rem;
+}
+
+.heroTitleGradientEmerald {
+  background: linear-gradient(to right, #047857, #115e59);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3.5rem;
+}
+
+.heroTitleGradientAL3ALAMIA {
+  background: linear-gradient(to right, #b45309, #a16207);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  font-family: serif;
+}
+
+/* Hero Visual */
+.heroVisual {
+  animation: fadeInRight 1s ease-out forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardContainer {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.mainCard {
+  /* background: rgba(255, 255, 255, 0.9); */
+  background: linear-gradient(to right, #047857, #115e59);
+
+  backdrop-filter: blur(16px);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: float 6s ease-in-out infinite;
+  position: relative;
+  z-index: 5;
+}
+
+/* .cardGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #facc15, #facc15, #34d399);
+  border-radius: 1.5rem;
+  filter: blur(4px);
+  opacity: 0.3;
+  transition: opacity 0.3s;
+} */
+
+/* .cardContainer:hover .cardGlow {
+  opacity: 0.5;
+} */
+
+.cardContent {
+  position: relative;
+  text-align: center;
+}
+
+.cardTitle {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(to right, #047857, #115e59);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Accent Circles */
+.accentCircle {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse 4s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.accentRose {
+  top: -1rem;
+  left: -1rem;
+  width: 2rem;
+  height: 2rem;
+  background: linear-gradient(to right, #fb7185, #f472b6);
+}
+
+.accentBlue {
+  bottom: -1rem;
+  right: -1rem;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(to right, #60a5fa, #22d3ee);
+  animation-delay: 1s;
+}
+
+.accentPurple {
+  top: 50%;
+  right: -2rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(to right, #a78bfa, #4f46e5);
+  animation-delay: 2s;
+}
+
+/* Floating Action Button */
+.floatingActionButton {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+.fabButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  background: linear-gradient(to right, #f59e0b, #eab308);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.fabButton:hover {
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.fabIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ffffff;
+}
+
+.fabButton:hover .fabIcon {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding: 1rem;
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .heroGrid {
+    gap: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .heroButtons {
+    align-items: center;
+  }
+
+  .mainCard {
+    padding: 2rem;
+  }
+
+  .floatingActionButton {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .fabButton {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroContent {
+    text-align: center;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+}

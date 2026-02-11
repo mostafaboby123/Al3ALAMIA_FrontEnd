@@ -1,0 +1,501 @@
+1.0- Auth...
+=============
+
+1.1- Register: {
+
+    -process: Sign Up or Register
+
+    -for client ( customer or patient )
+
+    -route: '/sign_up'
+
+    -request data: { username, email, password }
+
+
+    * if sign up successfully ✔️, response the next:
+
+        {
+            token:,                 => u will generate it 😁
+            user: {
+                username,           => get it from the request
+                email,              => get it from the request
+                phoneNumber,        => get it from the request
+                cart: [],           => will be empty
+                billsHistory: [],   => will be empty
+                appointments: [],   => will be empty
+                role: "client"      => leave it like this, look at note 2
+            },
+            message: ""             => write a suitable message 😁
+        }
+
+
+    * if sign up fail ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- insert client data in database
+
+2- "role" help me to know if the user is ( client or doctor or admin )
+
+3- some error cases:-
+    - invalid credentials, if the user tried to sign up with email is existing in database
+
+    - many bad requests, if the user failed to sign up or login 10 times within 5 minutes reject the requests from his ip for 2 minutes
+
+    - banned user if his email is existing in banned emails list
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+1.2- Login: {
+
+    -process: Login
+
+    -for client or doctor or admin
+
+    -route: '/login'
+    
+    -request data: { email, password }
+
+
+    * if login successfully ✔️, there are 3 cases:
+
+        => i think you will have a question 🤔, look at note 2 to find the answer 😁
+
+        case 1:-
+        -the user is client, response the next:
+        {
+            token:,                 => u will generate it 😁
+            user: {
+                username,           => get it from database
+                email,              => get it from database
+                phoneNumber,        => get it from database
+                cart:,              => get it from database
+                billsHistory:,      => get it from database
+                appointments:,      => get it from database
+                role: "client"      => leave it like this
+            },
+            message: ""             => write a suitable message 😁
+        }
+
+        case 2:-
+        -the user is doctor, response the next:
+        {
+            token:,                    => u will generate it 😁
+            user: {
+                username,              => get it from database
+                email,                 => get it from database
+                phoneNumber,           => get it from database
+                appointments:,         => get it from database
+                appointmentsHistory:,  => get it from database
+                posts,                 => get it from database
+                role: "doctor"         => leave it like this
+            },
+            message: ""                => write a suitable message 😁
+        }
+
+        case 3:-
+        -the user is admin, response the next:
+        {
+            token:,                 => u will generate it 😁
+            user: {
+                email,              => get it from database
+                phoneNumber,        => get it from database
+                role: "admin"       => leave it like this
+            },
+            message: ""             => write a suitable message 😁
+        }
+
+
+    * if login fail ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- "role" help me to know if the user is ( client or doctor or admin )
+
+2- to know in which case you are follow this conditions:-
+
+    - case 2: the user is doctor if email ended with doc@eyehub.com, example: "mostafadoc@eyehub.com".
+    
+    - case 3: the user is admin if email ended with admin@eyehub.com, example: "mo123admin@eyehub.com".
+    
+    - case 1: the user is client if case 1 and case 2 fails.
+
+3- some error cases:-
+
+    - invalid credentials, if the user tried to login with email is not existing in database.
+
+    - invalid credentials, if email is existing but password is wrong.
+
+    - many bad requests, if the user failed to login or sign up 10 times within 5 minutes reject the requests from his ip for 2 minutes
+
+    - banned user if his email is existing in banned emails list
+
+
+
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+
+
+
+2.0- Market...
+===============
+
+
+2.1- admin processes
+
+
+2.1.1- Add Product To Market: {
+
+    -process: Add Product To Market
+
+    -for admin
+
+    -route: '/admin/market/processes'
+
+    -request data: {
+        title,
+        description,
+        category,
+        quantity,
+        tryAR, => boolean value, look at note 2
+        price,
+        img
+    }
+
+
+    * if product added successfully ✔️, response the next:
+
+        {
+            products: []   => all products after adding
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if product adding fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- insert product data in database
+
+2- "tryAR" boolean value used to detect if the product can be traid in "Try AR" page or not
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+2.1.2- Update product in market: {
+
+    -process: Update Product in market
+
+    -for admin
+
+    -route: '/admin/market/processes'
+
+    -request data: {
+        id,
+        title,
+        description,
+        category,
+        quantity,
+        tryVR,
+        price,
+        img
+    }
+
+
+    * if product updated successfully ✔️, response the next:
+
+        {
+            products: []   => all products after updating
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if product updating fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- update the product by its id.
+
+2- i will send you the id in the request 😁
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+2.1.3- Delete product from Market: {
+
+    -process: Delete Product from Market
+
+    -for admin
+
+    routes: ( '/admin/market', '/admin/market/:id' )
+
+    request data: {}
+
+
+    * if product deleted successfully ✔️, response the next:
+
+        {
+            products: []   => all products after deleting
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if product adding fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- no data will be sended in the request.
+
+2- delete the product by its id.
+
+3- you will find the product id in route
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+2.2- admin and client processes
+
+
+2.2.1- Show all products: {
+
+    -process: Show All Products
+
+    -route: ( '/market', '/market/:id' , '/admin/market', '/admin/market/:id' )
+
+    -request data: {}
+
+
+    * if all products retrieved successfully ✔️, response the next:
+
+        {
+            products: []   => all products
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if products retrieved fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- no data will be sended in the request.
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+2.2.2- Show one Product: {
+
+    -process: Show one Product
+
+    -route: ( '/market/:id' , '/admin/market/:id' )
+
+    -request data: {}
+
+
+    * if the product retrieved successfully ✔️, response the next:
+
+        {
+            products: {}   => retrieve its data from database
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if the product retrieved fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- no data will be sended in the request.
+
+2- get product id from route
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+2.3- client processes
+
+
+2.3.1- Add product to cart: {
+
+    -process: Add product to cart
+
+    -route: ( '/market' , '/market/:id' )
+
+    -request data: {
+        id
+    }
+
+
+    * if the product added to cart successfully ✔️, response the next:
+
+        {
+            userCart: []   => retrieve it from database
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if the product added to cart fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- صلي على النبي 10 مرات 😁
+
+2- i will send you the product id in the request
+
+3- add the product info in user cart 😁😁😁
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+2.3.2- Remove product from cart: {
+
+    -process: Remove product from cart
+
+    -route: ( '/market' , '/market/:id' , '/cart' )
+
+    -request data: {
+        id
+    }
+
+
+    * if the product removed from cart successfully ✔️, response the next:
+
+        {
+            userCart: []   => retrieve it from database
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if the product removed from cart fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- استغفر 10 مرات 😁
+
+2- remove the product info from user cart
+
+
+
+____________________________________________________________
+------------------------------------------------------------
+
+
+
+2.3.3- Buy Products: {
+
+    -process: Buy Products
+
+    -route: ( '/checkout/all', '/checkout/:id' )
+
+    -request data: {
+        productsIds,        => look at note 3
+        paymentInfo: {
+            cardNumber      => example: "4111111111111111",
+            cardHolderName  => example: "The King Of El Sardyn",
+            expiryDate      => example: "12/25",
+            cvv             => example: "123"
+        }
+    }
+
+
+    * if the payment completed successfully ✔️, response the next:
+
+        {
+            message: ""    => write a suitable message 😁
+        }
+
+
+    * if the payment fails ❌, response the next:
+
+    {
+        error { message: "" } => write a suitable message 😁
+    }
+}
+
+notes (*_*)
+
+1- 😁 وحد الله
+
+2- ❤️ صل على الحبيب
+
+3- A list of ids for the products will be bought
+
+4- don't forget to add the payment info to the user payment history 😁
+
+5- don't forget to remove the products from the cart after the payment 😁😁😁

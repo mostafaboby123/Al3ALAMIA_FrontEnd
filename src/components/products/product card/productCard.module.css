@@ -1,0 +1,513 @@
+/* Modern Light Product Card Design - AL3ALAMIA Perfume Store */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Color palette from home.module.css */
+  --amber-50: #fefce8;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --emerald-50: #ecfdf5;
+  --emerald-100: #d1fae5;
+  --emerald-200: #a7f3d0;
+  --emerald-600: #059669;
+  --emerald-700: #047857;
+  --emerald-800: #065f46;
+  --stone-50: #fafaf9;
+  --stone-100: #f5f5f4;
+  --stone-400: #a8a29e;
+  --stone-500: #78716c;
+  --stone-600: #57534e;
+  --stone-800: #292524;
+  --rose-50: #fdf2f8;
+  --rose-100: #fce7f3;
+  --rose-400: #fb7185;
+  --rose-500: #f43f5e;
+  
+  /* Custom shadows and effects */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-large: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+}
+
+.box {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(145deg, #ffffff 0%, var(--stone-50) 100%);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  isolation: isolate;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(145deg, 
+    var(--amber-50) 0%, 
+    transparent 30%, 
+    var(--emerald-50) 70%, 
+    transparent 100%);
+  opacity: 0;
+  transition: all 0.4s ease;
+  border-radius: 24px;
+  z-index: -1;
+}
+
+.box:hover::before {
+  opacity: 0.6;
+}
+
+.box:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-large);
+  border-color: var(--amber-200);
+}
+
+/* Image Container */
+.image_con {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #ffffff 0%, var(--amber-50) 100%);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.image_con::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, var(--amber-100) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.box:hover .image_con::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0.8;
+}
+
+.product_image {
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 12px rgba(185, 83, 9, 0.15));
+  z-index: 2;
+  position: relative;
+  top: 20px;
+}
+
+.box:hover .product_image {
+  transform: scale(1.05) rotate(1deg);
+  filter: drop-shadow(0 8px 20px rgba(185, 83, 9, 0.2));
+}
+
+/* Top badges */
+.top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+}
+
+.type_badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.Mouse_badge {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); /* Blue */
+  color: white;
+}
+
+.Keyboard_badge {
+  background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); /* Purple */
+  color: white;
+}
+
+.cables_badge {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); /* Amber */
+  color: white;
+}
+
+.Mousepad_badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%); /* Emerald */
+  color: white;
+}
+
+.Inks_badge {
+  background: linear-gradient(135deg, #111827 0%, #374151 100%); /* Dark Gray / Black */
+  color: white;
+}
+
+.type_icon {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.box:hover .type_badge {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Data Section */
+.data {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: linear-gradient(145deg, #ffffff 0%, var(--stone-50) 100%);
+  position: relative;
+}
+
+.data::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--amber-200) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.box_title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--stone-800);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.box_title:hover {
+  color: var(--amber-700);
+  transform: translateX(4px);
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--stone-500);
+  margin: 0;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.sales {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--amber-700);
+  background: linear-gradient(135deg, var(--amber-50) 0%, var(--amber-100) 100%);
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  border: 1px solid var(--amber-200);
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.sales::before {
+  content: '●';
+  color: var(--amber-600);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.sales::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.box:hover .sales::after {
+  opacity: 1;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.main::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--amber-300) 0%, var(--emerald-300) 100%);
+  transition: width 0.5s ease;
+}
+
+.box:hover .main::before {
+  width: 100%;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--amber-700) 0%, var(--amber-600) 50%, var(--emerald-600) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+/* Button Styles */
+.cart_btn {
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  backdrop-filter: blur(10px);
+}
+
+.cart_btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: all 0.4s ease;
+  border-radius: 50%;
+}
+
+.cart_btn:hover::before {
+  width: 200px;
+  height: 200px;
+}
+
+.add_to_cart {
+  background: linear-gradient(135deg, var(--amber-600) 0%, var(--amber-700) 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+}
+
+.add_to_cart:hover {
+  background: linear-gradient(135deg, var(--amber-700) 0%, var(--amber-800) 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.4);
+}
+
+.remove_from_cart {
+  background: var(--glass-bg);
+  color: var(--amber-700);
+  border: 1px solid var(--amber-200);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.remove_from_cart:hover {
+  background: linear-gradient(135deg, var(--amber-50) 0%, var(--amber-100) 100%);
+  border-color: var(--amber-300);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(217, 119, 6, 0.2);
+  color: var(--amber-800);
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes card-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.box {
+  animation: card-entrance 0.5s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .box {
+    max-width: 300px;
+    border-radius: 20px;
+  }
+  
+  .image_con {
+    height: 260px;
+    padding: 20px;
+  }
+  
+  .product_image {
+    max-height: 200px;
+  }
+  
+  .data {
+    padding: 20px;
+    gap: 14px;
+  }
+  
+  .box_title {
+    font-size: 18px;
+  }
+  
+  .price {
+    font-size: 22px;
+  }
+  
+  .cart_btn {
+    padding: 10px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .box {
+    max-width: 280px;
+    border-radius: 18px;
+  }
+  
+  .image_con {
+    height: 240px;
+    padding: 16px;
+  }
+  
+  .product_image {
+    max-height: 180px;
+  }
+  
+  .data {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .box_title {
+    font-size: 16px;
+  }
+  
+  .price {
+    font-size: 20px;
+  }
+  
+  .cart_btn {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+}
+
+/* Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .box,
+  .box *,
+  .box::before,
+  .box::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus states for accessibility */
+.cart_btn:focus,
+.box_title:focus {
+  outline: 2px solid var(--amber-400);
+  outline-offset: 2px;
+}
+
+/* Loading state */
+.box.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.box.loading::before {
+  background: linear-gradient(90deg, 
+    transparent 25%, 
+    rgba(255, 255, 255, 0.5) 50%, 
+    transparent 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200px 0; }
+  100% { background-position: calc(200px + 100%) 0; }
+}

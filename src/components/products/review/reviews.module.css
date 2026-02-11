@@ -1,0 +1,149 @@
+.review {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #e1e8ed;
+  padding: 1.2rem;
+  padding-bottom: 2.8rem;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.review:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: #4a90e2;
+  transition: all 0.3s ease;
+}
+
+.commentFadeIn {
+  animation: fadeIn 0.5s ease-in-out, highlightFade 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes highlightFade {
+  0% {
+    box-shadow: 0px 0px 20px 20px #e8f2ff inset;
+    border-color: #4a90e2;
+  }
+  100% {
+    box-shadow: 0px 0px 0px 0px transparent inset;
+    border-color: #e1e8ed;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.8rem;
+}
+
+.clientName {
+  color: #1a365d;
+  font-size: 1.1rem;
+}
+
+.companyName {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: bold;
+  background-color: #f7f9fc;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+}
+
+.starIcon {
+  color: #ffc107;
+  font-size: 1rem;
+}
+
+.ratingValue {
+  color: #1a365d;
+  font-weight: bold;
+}
+
+.comment {
+  font-size: 0.95rem;
+  color: #2d3748;
+  line-height: 1.5;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background-color: #f9fafb;
+  border-radius: 4px;
+  border-left: 3px solid #4a90e2;
+}
+
+.date,
+.time {
+  font-size: 0.8rem;
+  color: #718096;
+  position: absolute;
+  bottom: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.date {
+  left: 1.2rem;
+}
+
+.time {
+  right: 1.2rem;
+}
+
+.productInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.productIcon {
+  color: #4a90e2;
+  font-size: 1.2rem;
+}
+
+.productName {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.orderInfo {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background-color: #edf2f7;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.orderLabel {
+  color: #718096;
+  margin-right: 0.3rem;
+}
+
+.orderNumber {
+  color: #2d3748;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+}

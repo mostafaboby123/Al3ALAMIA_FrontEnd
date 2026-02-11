@@ -1,0 +1,280 @@
+/* Container and Background */
+.container {
+  @apply min-h-screen bg-gradient-to-br from-[#90e0ef] via-[#023e8a] to-[#03045e] py-14 px-4 sm:px-6 lg:px-8;
+}
+
+.backgroundElements {
+  @apply fixed inset-0 overflow-hidden pointer-events-none;
+}
+
+.backgroundBubble1 {
+  @apply absolute top-20 left-20 w-32 h-32 bg-[#90e0ef]/10 rounded-full blur-xl animate-pulse;
+}
+
+.backgroundBubble2 {
+  @apply absolute top-40 right-20 w-24 h-24 bg-[#0096c7]/10 rounded-full blur-xl animate-pulse;
+  animation-delay: 1s;
+}
+
+.backgroundBubble3 {
+  @apply absolute bottom-20 left-1/4 w-40 h-40 bg-[#023e8a]/10 rounded-full blur-xl animate-pulse;
+  animation-delay: 2s;
+}
+
+/* Layout */
+.mainContainer {
+  @apply relative max-w-7xl mx-auto;
+}
+
+.header {
+  @apply text-center mb-12 ;
+}
+
+.headerTitle {
+  @apply text-4xl sm:text-5xl font-bold text-white mb-4  ;
+}
+
+
+
+.gridLayout {
+  @apply grid lg:grid-cols-2 gap-8 lg:gap-12;
+}
+
+/* Cards */
+.card {
+  @apply backdrop-blur-xl bg-[#e6f3fa]/10 border border-[#90e0ef]/20 rounded-3xl p-6 sm:p-8 shadow-2xl;
+}
+
+.cardHeader {
+  @apply flex items-center gap-3 mb-8;
+}
+
+.cardIcon {
+  @apply p-2 rounded-xl;
+}
+
+.cardIconPrimary {
+  @apply bg-gradient-to-r from-[#023e8a] to-[#0096c7];
+}
+
+.cardIconSuccess {
+  @apply bg-gradient-to-r from-[#4db8e0] to-[#90e0ef];
+}
+
+.cardTitle {
+  @apply text-2xl font-bold text-[#ffffff];
+}
+
+/* Order Summary Specific */
+.orderSummaryOrder {
+  @apply order-2 lg:order-1;
+}
+
+.userInfo {
+  @apply bg-[#e6f3fa]/5 rounded-2xl p-6 mb-8 border border-[#90e0ef]/10;
+}
+
+.userInfoHeader {
+  @apply flex items-center gap-4 mb-4;
+}
+
+.userAvatar {
+  @apply w-12 h-12 bg-gradient-to-r from-[#023e8a] to-[#0096c7] rounded-full flex items-center justify-center;
+}
+
+.userName {
+  @apply text-[#ffffff] font-semibold;
+}
+
+.userEmail {
+  @apply text-[#ffffff] text-sm;
+}
+
+.productsList {
+  @apply space-y-4 mb-8;
+}
+
+.productItem {
+  /* Removed @apply group; handled in React component */
+}
+
+.productCard {
+  @apply bg-[#e6f3fa]/5 rounded-2xl p-4 border border-[#90e0ef]/10 hover:bg-[#e6f3fa]/10 transition-all duration-300 hover:scale-[1.02];
+}
+
+.productContent {
+  @apply flex items-center gap-4;
+}
+
+.productImage {
+  @apply relative overflow-hidden rounded-xl w-16 h-16 flex-shrink-0;
+}
+
+.productImageEl {
+  @apply w-full h-full object-cover group-hover:scale-110 transition-transform duration-300;
+}
+
+.productDetails {
+  @apply flex-1 min-w-0;
+}
+
+.productName {
+  @apply text-[#ffffff] font-semibold text-sm sm:text-base truncate;
+}
+
+.productMeta {
+  @apply flex items-center justify-between mt-2;
+}
+
+.productQuantity {
+  @apply text-[#e6f3fa] text-sm;
+}
+
+.productPrice {
+  @apply text-[#ffffff] font-bold;
+}
+
+.totalSection {
+  @apply bg-gradient-to-r from-[#023e8a]/20 to-[#0096c7]/20 rounded-2xl p-6 border border-[#0096c7]/30;
+}
+
+.totalContent {
+  @apply flex items-center justify-between;
+}
+
+.totalLabel {
+  @apply text-xl font-bold text-[#ffffff];
+}
+
+.totalAmount {
+  @apply text-3xl font-bold bg-clip-text text-[#ffffff];
+}
+
+/* Payment Form */
+.paymentFormOrder {
+  @apply order-1 lg:order-2;
+}
+
+.successMessage {
+  @apply mb-8 p-6 bg-gradient-to-r from-[#4db8e0]/20 to-[#90e0ef]/20 border border-[#4db8e0]/30 rounded-2xl;
+}
+
+.successContent {
+  @apply flex items-center gap-3;
+}
+
+.successIcon {
+  @apply p-2 bg-[#4db8e0] rounded-full;
+}
+
+.successTitle {
+  @apply text-[#90e0ef] font-bold text-lg;
+}
+
+.successText {
+  @apply text-[#4db8e0];
+}
+
+.formContainer {
+  @apply space-y-6;
+}
+
+.formGroup {
+  @apply space-y-2;
+}
+
+.formLabel {
+  @apply flex items-center gap-2 text-[#ffffff] font-semibold;
+}
+
+.inputContainer {
+  @apply relative transition-transform duration-200 hover:scale-[1.02];
+}
+
+.inputContainerFocused {
+  @apply scale-[1.02];
+}
+
+.inputField {
+  @apply w-full p-4 bg-[#e6f3fa]/5 border rounded-2xl text-[#90e0ef] placeholder-[#e6f3fa] focus:outline-none focus:ring-2 focus:ring-[#0096c7] focus:border-transparent transition-all duration-300;
+}
+
+.inputFieldDefault {
+  @apply border-[#90e0ef]/20 hover:border-[#90e0ef]/40;
+}
+
+.inputFieldError {
+  @apply border-red-500;
+}
+
+.inputGlow {
+  @apply absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0096c7]/20 to-[#90e0ef]/20 -z-10 blur-sm;
+}
+
+.errorMessage {
+  @apply text-red-400 text-sm flex items-center gap-1;
+}
+
+.errorMessageSmall {
+  @apply text-red-400 text-xs flex items-center gap-1;
+}
+
+.gridTwoColumns {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.securityInfo {
+  @apply bg-[#e6f3fa]/5 rounded-2xl p-4 border border-[#90e0ef]/10;
+}
+
+.securityContent {
+  @apply flex items-center gap-3;
+}
+
+.securityTitle {
+  @apply text-[#90e0ef] font-semibold text-sm;
+}
+
+.securityText {
+  @apply text-[#e6f3fa] text-xs;
+}
+
+.submitButton {
+  @apply relative w-full p-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-[#0096c7]/50;
+}
+
+.submitButtonActive {
+  @apply bg-gradient-to-r from-[#023e8a] to-[#0096c7] hover:from-[#03045e] hover:to-[#023e8a] text-white shadow-xl hover:shadow-2xl;
+}
+
+.submitButtonDisabled {
+  @apply bg-gray-600 cursor-not-allowed;
+}
+
+.submitButtonContent {
+  @apply flex items-center justify-center gap-3;
+}
+
+.footer {
+  @apply text-center pt-4;
+}
+
+.footerText {
+  @apply text-[#e6f3fa] text-sm;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
