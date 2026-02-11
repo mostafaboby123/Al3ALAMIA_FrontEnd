@@ -2,7 +2,7 @@ import styles from "./cardsContainer.module.css";
 import SearchAndCategories from "../SearchAndCategories/SearchAndCategories";
 import ProductCard from "../../products/product card/ProductCard";
 import { useEffect, useState } from "react";
-import { LoaderPage } from "../loading spinners/Loaders";
+import { LoaderPage } from "../loadingSpinners/Loaders";
 
 function CardsContainer({ info }) {
   const { isPending, error, categories, defaultCategory, cards, type, onProductSelect } = info;

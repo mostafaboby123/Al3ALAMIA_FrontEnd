@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./StarRatingInput.module.css";
+import styles from "./starRatingInput.module.css";
 
 const StarRatingInput = ({ field, form, id }) => {
   const { name, value } = field;

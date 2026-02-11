@@ -6,7 +6,7 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { signUpApi } from "../../redux/auth/authApis";
 import { clearError } from "../../redux/auth/authSlice";
-import { LoaderBtn } from "../../components/common/loading spinners/Loaders";
+import { LoaderBtn } from "../../components/common/loadingSpinners/Loaders";
 import { useTranslation } from "react-i18next";
 
 function Register() {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import styles from "./VerifyEmail.module.css";
+import styles from "./verifyEmail.module.css";
 
 const VerifyEmail = () => {
   const [status, setStatus] = useState("loading");

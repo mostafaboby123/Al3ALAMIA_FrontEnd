@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import PersonalInformation from "../AdminPersonalInformation/aboutAdmin";
+import PersonalInformation from "../adminPersonalInformation/aboutAdmin";
 import styles from "./adminProfile.module.css";
 
 const AdmenProfile = () => {

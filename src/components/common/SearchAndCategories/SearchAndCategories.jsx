@@ -1,5 +1,5 @@
 import { TbSearch } from "react-icons/tb";
-import styles from "./SearchAndCategories.module.css";
+import styles from "./searchAndCategories.module.css";
 
 function SearchAndCategories({ categories, searchData, setSearchData }) {
   const handleSearchChange = (e) => {
