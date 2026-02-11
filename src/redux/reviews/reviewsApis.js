@@ -1,7 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const URL = "http://al3alamiabackend-production.up.railway.app/products";
+const URL = "https://al3alamiabackend-production.up.railway.app/products";
 
 // update doctor rating function
 const updateRating = (reviews) => {
