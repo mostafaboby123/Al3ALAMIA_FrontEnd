@@ -1,11 +1,11 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Home from "./pages/home/Home";
-import Login from "./pages/login and Register/Login";
-import Register from "./pages/login and Register/Register";
+import Login from "./pages/loginAndRegister/Login";
+import Register from "./pages/loginAndRegister/Register";
 import Market from "./pages/market/Market";
 import MainPage from "./pages/MainPage";
-import ProductInfo from "./components/products/product info/ProductInfo";
+import ProductInfo from "./components/products/productInfo/ProductInfo";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import Cart from "./pages/cart/Cart";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,13 +14,13 @@ import CheckOutProtected from "./routes/CheckOutProtected";
 import Checkout from "./pages/checkout/Checkout";
 import Unauthorized from "./pages/Unauthorized";
 import "./App.css";
-import VerifyEmail from "./pages/verify email/VerifyEmail";
+import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
 import Profile from "./pages/profile/profile";
 import ProtectedRouteUserAdmin from "./routes/ProtectedRouteUserAdmin";
 import ProtectedRouteUser from "./routes/ProtectedRouteUser";
-import AdmenProfile from "./pages/admin profile/AdminProfile";
+import AdmenProfile from "./pages/adminProfile/AdminProfile";
 import ProtectedRouteAdmin from "./routes/ProtectedRouteAdmen";
-import MarketManage from "./pages/market manage/MarketManage";
+import MarketManage from "./pages/marketManage/MarketManage";
 
 // Add these imports for i18next
 import './i18n'; // Make sure this file exists (see below)

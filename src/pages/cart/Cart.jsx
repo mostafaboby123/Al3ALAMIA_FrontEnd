@@ -1,7 +1,7 @@
 // Cart.jsx
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import CartItem from "../../components/products/cart item/CartItem";
+import CartItem from "../../components/products/cartItem/CartItem";
 import styles from "./cart.module.css";
 import { useNavigate } from "react-router-dom";
 import { CartOperationsApi } from "../../redux/auth/authApis";
