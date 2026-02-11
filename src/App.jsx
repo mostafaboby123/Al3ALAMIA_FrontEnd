@@ -15,7 +15,7 @@ import Checkout from "./pages/checkout/Checkout";
 import Unauthorized from "./pages/Unauthorized";
 import "./App.css";
 import VerifyEmail from "./pages/verifyEmail/VerifyEmail";
-import Profile from "./pages/profile/Profile";
+import Profile from "./pages/profile/profile";
 import ProtectedRouteUserAdmin from "./routes/ProtectedRouteUserAdmin";
 import ProtectedRouteUser from "./routes/ProtectedRouteUser";
 import AdmenProfile from "./pages/adminProfile/AdminProfile";
