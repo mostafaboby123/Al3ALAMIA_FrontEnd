@@ -10,7 +10,7 @@ import {
   useProducts,
   useUpdateProduct,
 } from "../../redux/products/productsApis";
-import ProductCard from "../../components/products/product card/ProductCard";
+import ProductCard from "../../components/products/productCard/ProductCard";
 import { successMessage } from "../../redux/toasts";
 
 const validationSchema = Yup.object({

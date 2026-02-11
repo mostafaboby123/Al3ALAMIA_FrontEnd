@@ -1,6 +1,6 @@
 import styles from "./cardsContainer.module.css";
 import SearchAndCategories from "../SearchAndCategories/SearchAndCategories";
-import ProductCard from "../../products/product card/ProductCard";
+import ProductCard from "../../products/productCard/ProductCard";
 import { useEffect, useState } from "react";
 import { LoaderPage } from "../loadingSpinners/Loaders";
 

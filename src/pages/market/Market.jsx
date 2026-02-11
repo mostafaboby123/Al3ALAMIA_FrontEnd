@@ -1,5 +1,5 @@
 import Hero from "../../components/common/hero/Hero";
-import CardsContainer from "../../components/common/cards container/CardsContainer";
+import CardsContainer from "../../components/common/cardsContainer/CardsContainer";
 import { useProducts } from "../../redux/products/productsApis";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";

@@ -16,7 +16,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useProductById } from "../../../redux/products/productsApis";
 import { useSelector } from "react-redux";
 import Review from "../review/Review";
-import PostReviewCon from "../posts and reviews container/PostReviewCon";
+import PostReviewCon from "../postsAndReviewsContainer/PostReviewCon";
 import { useTranslation } from "react-i18next";
 const ProductInfo = () => {
   const { t } = useTranslation();
