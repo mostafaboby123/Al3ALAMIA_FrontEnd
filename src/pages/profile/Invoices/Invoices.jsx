@@ -1,4 +1,4 @@
-import styles from "./invoices.module.css";
+import styles from "./Invoices.module.css";
 import { useSelector } from "react-redux";
 import { useUserBillsHistory } from "../../../redux/bills/billsApi";
 
