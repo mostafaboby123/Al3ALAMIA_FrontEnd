@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import PersonalInformation from './PersonalInformation/PersonalInformation';
 import Invoices from './Invoices/Invoices';
-import styles from './Profile.module.css'https://github.com/mostafaboby123/Al3ALAMIA_FrontEnd/blob/main/src/pages/profile/profile.jsx;
+import styles from './Profile.module.css';
 
 const Profile = () => {
   const [activeSection] = useState('profile');
