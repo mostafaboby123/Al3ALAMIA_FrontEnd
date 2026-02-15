@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react"; // make sure useEffect is imported
-
+import { useState, useEffect } from "react";
 import styles from "./marketManage.module.css";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -22,7 +21,6 @@ const validationSchema = Yup.object({
     .positive("Price must be positive"),
   url: Yup.string().required("Image is required"),
   brand: Yup.string().required("Brand is required"),
-  sideEffect: Yup.string().required("Side Effect is required"),
   maxQuantity: Yup.number()
     .required("Max Quantity is required")
     .positive("Max Quantity must be positive"),
@@ -169,7 +167,6 @@ const MarketManage = () => {
                 name: selectedProduct?.name || "",
                 desc: selectedProduct?.desc || "",
                 type: selectedProduct?.type || "",
-                inspiredBy: selectedProduct?.inspiredBy || "",
                 price: selectedProduct?.price || "",
                 url: selectedProduct?.url || "",
                 brand: selectedProduct?.brand || "",
@@ -200,24 +197,14 @@ const MarketManage = () => {
                     />
                   </div>
                   <div className={styles.formGroup}>
-                    <label>Inspired By</label>
-                    <Field
-                      name="inspiredBy"
-                      type="text"
-                      className={styles.input}
-                    />
-                    <ErrorMessage
-                      name="inspiredBy"
-                      component="div"
-                      className={styles.error}
-                    />
-                  </div>
-                  <div className={styles.formGroup}>
                     <label>Type</label>
                     <Field name="type" as="select" className={styles.input}>
                       <option value="">Select Type</option>
-                      <option value="Glasses">Men</option>
-                      <option value="Drops">Women</option>
+                      <option value="Glasses">Mouse</option>
+                      <option value="Drops">Keyboard</option>
+                      <option value="Pill">Inks</option>
+                      <option value="Injection">Mouse Pad</option>
+                      <option value="Implant">Cables</option>
                     </Field>
                     <ErrorMessage
                       name="type"
